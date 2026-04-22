@@ -1,0 +1,16 @@
+**/*.map
+.git
+.gitignore
+.prettierignore
+.prettierrc
+.vscode
+.vscode-test/**
+.vscode/**
+.vscodeignore
+node_modules
+src/
+test/**
+tsconfig.json
+webpack.config.js
+package-lock.json
+shfmt-ide-*.vsix

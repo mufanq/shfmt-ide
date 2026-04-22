@@ -1,0 +1,10 @@
+out
+node_modules
+.vscode-test
+.DS_Store
+*.vsix
+branch.txt
+minichangelog.txt
+version.txt
+dist
+bin

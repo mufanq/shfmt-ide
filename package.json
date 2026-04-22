@@ -1,0 +1,102 @@
+{
+  "name": "shfmt-ide",
+  "displayName": "shfmt for IDE",
+  "description": "Run shfmt (mvdan/sh) as WebAssembly inside VS Code — bundled, no binary download, cross-platform by construction.",
+  "version": "0.1.0",
+  "publisher": "MufanQiu",
+  "engines": {
+    "vscode": "^1.36.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:shellscript",
+    "onLanguage:bats"
+  ],
+  "main": "./dist/extension",
+  "capabilities": {
+    "documentFormattingProvider": true
+  },
+  "icon": "logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mufanq/shfmt-ide.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mufanq/shfmt-ide/issues"
+  },
+  "homepage": "https://github.com/mufanq/shfmt-ide#readme",
+  "license": "MIT",
+  "keywords": [
+    "shfmt",
+    "wasm",
+    "webassembly",
+    "shellscript",
+    "bash",
+    "posix",
+    "mksh",
+    "bats",
+    "formatter"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "shellscript"
+      },
+      {
+        "id": "bats",
+        "extensions": [
+          ".bats"
+        ]
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "shfmt for IDE",
+      "properties": {
+        "shfmtIde.flag": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "description": "Formatter flags in shfmt syntax, e.g. '-p -bn -ci -i 2'. See https://github.com/mvdan/sh for the full list."
+        },
+        "shfmtIde.effectLanguages": {
+          "type": "array",
+          "default": [
+            "shellscript",
+            "bats"
+          ],
+          "description": "Language IDs on which this formatter should be registered."
+        },
+        "shfmtIde.useEditorConfig": {
+          "type": "boolean",
+          "default": false,
+          "description": "Read formatting options from the nearest .editorconfig file instead of shfmtIde.flag."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "webpack --mode production",
+    "package": "vsce package --no-yarn",
+    "compile": "webpack --mode none",
+    "watch": "webpack --mode none --watch"
+  },
+  "devDependencies": {
+    "@types/node": "18.16.19",
+    "@types/vscode": "^1.36.0",
+    "@vscode/vsce": "^2.24.0",
+    "ts-loader": "9.4.4",
+    "typescript": "5.1.6",
+    "webpack": "5.88.2",
+    "webpack-cli": "5.1.4"
+  },
+  "dependencies": {
+    "diff": "~5.1.0",
+    "editorconfig": "^0.15.3",
+    "sh-syntax": "^0.5.8"
+  }
+}
