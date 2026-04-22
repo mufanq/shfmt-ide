@@ -2,7 +2,7 @@
   "name": "shfmt-ide",
   "displayName": "shfmt for IDE",
   "description": "Run shfmt (mvdan/sh) as WebAssembly inside VS Code — bundled, no binary download, cross-platform by construction.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "MufanQiu",
   "engines": {
     "vscode": "^1.36.0"
